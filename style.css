@@ -348,7 +348,6 @@ audio {
   background-color: #0056b3;
 }
 
-
 /* Estilos para la sección del contrato */
 
 /* Asegúrate de que el contenedor de partículas ocupe toda la pantalla */
@@ -359,49 +358,89 @@ audio {
   width: 100%;
   height: 100%;
   z-index: -1; /* Para que las partículas estén detrás del contenido */
+  overflow: hidden; /* Evita que las partículas se desborden */
 }
 
 /* Estilo para la sección del contrato */
 .contract-section {
-  padding: 30px;
+  padding: 20px;
   color: white;
   text-align: center;
   position: relative; /* Para que el contenido esté sobre las partículas */
+  box-sizing: border-box; /* Asegura que el padding no rompa el layout */
+  overflow: hidden; /* Evita desbordamientos */
 }
 
+/* Ajuste de tamaño de título */
 .contract-info h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  word-wrap: break-word; /* Asegura que el texto largo se ajuste */
+  max-width: 100%; /* Asegura que el título no se desborde */
 }
 
+/* Ajuste de contenedor para pantallas más pequeñas */
 .contract-details {
   text-align: left;
   margin: 0 auto;
-  display: table;
-  max-width: 600px;
-  width: 100%;
+  display: block; /* Cambiar de table a block */
+  width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+  box-sizing: border-box; /* Asegura que los padding no afecten el tamaño */
+  overflow-x: auto; /* Permite que los elementos se deslicen horizontalmente si es necesario */
 }
 
+/* Ajuste de las filas de contrato */
 .contract-item {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #fff;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a la pantalla */
+  box-sizing: border-box; /* Asegura que el padding no rompa el layout */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
 
+/* Ajuste de las celdas dentro de las filas */
 .contract-item span {
   display: inline-block;
   font-size: 1.2rem;
+  width: 100%; /* Asegura que ocupe todo el ancho en pantallas pequeñas */
+  text-align: left;
+  word-wrap: break-word; /* Asegura que el texto largo se ajuste */
 }
 
+/* Estilos de texto copiable */
 .copyable {
   color: #007bff; /* Azul similar a un enlace */
   cursor: pointer; /* Cambia el cursor a mano */
   text-decoration: underline; /* Subraya el texto */
 }
 
+/* Estilo de mensaje de copiado */
 #copy-message {
   margin-top: 20px;
   font-size: 1.1rem;
   font-weight: bold;
+  word-wrap: break-word; /* Asegura que el texto largo se ajuste */
 }
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contract-section {
+    padding: 15px;
+  }
+
+  .contract-info h2 {
+    font-size: 1.5rem; /* Reducir el tamaño del título en pantallas más pequeñas */
+  }
+
+  .contract-item {
+    padding: 8px;
+  }
+
+  .contract-item span {
+    font-size: 1rem; /* Reducir tamaño de texto en pantallas más pequeñas */
+    width: 100%; /* Asegura que el texto ocupe todo el espacio disponible */
+  }
+}
+
